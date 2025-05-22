@@ -19,4 +19,7 @@
   ```
   npm install prisma -D
   npm install @prisma/client
+
+  # After installation and setting up database
+  npx prisma init
   ```
