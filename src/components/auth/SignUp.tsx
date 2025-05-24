@@ -10,7 +10,7 @@ const initialState = {
 
 type SignUpProps = {
   action: (
-    prevState: any,
+    prevState: unknown,
     formData: FormData
   ) => Promise<{ message: string } | undefined>;
 };
