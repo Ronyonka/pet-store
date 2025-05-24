@@ -3,6 +3,7 @@ import { logoutUser } from "@/actions/auth";
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { User } from "@prisma/client";
 
 const AnnouncementBar = () => {
   return (
