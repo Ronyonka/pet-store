@@ -23,3 +23,8 @@
   # After installation and setting up database
   npx prisma init
   ```
+
+- [Lucia:](https://lucia-auth.com/sessions/basic-api/prisma)
+  ```
+  npm i @oslojs/encoding @oslojs/crypto
+  ```

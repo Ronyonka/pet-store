@@ -77,7 +77,7 @@ const Header = () => {
               </nav>
             </div>
 
-            <Link href="#">link</Link>
+            <Link href="#">DEAL</Link>
             <div className="flex flex-1 justify-end items-center gap-2 sm:gap-4">
               <button className="text-gray-700 hover:text-gray-900 hidden sm:block">
                 <svg
@@ -96,7 +96,7 @@ const Header = () => {
                 </svg>
               </button>
               <Link href="#">Sign In</Link>
-              <Link href="#">Sign Up</Link>
+              <Link href="/auth/sign-up">Sign Up</Link>
 
               <button className="text-gray-700 hover:text-gray-900 relative">
                 <svg
