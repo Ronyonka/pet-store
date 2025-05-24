@@ -64,23 +64,21 @@ export async function validateSessionToken(
       },
     });
   }
-  return { session, user };
+
+  const safeUser = {
+    ...user,
+    passwordHash: undefined,
+  };
+
+  return { session, user: safeUser };
 }
 
 export async function invalidateSession(sessionId: string): Promise<void> {
   await prisma.session.delete({ where: { id: sessionId } });
 }
 
-export async function invalidateAllSessions(userId: number): Promise<void> {
-  await prisma.session.deleteMany({
-    where: {
-      userId: userId,
-    },
-  });
-}
-
 export type SessionValidationResult =
-  | { session: Session; user: User }
+  | { session: Session; user: Omit<User, "passwordHash"> }
   | { session: null; user: null };
 
 /* Cookies */
@@ -140,10 +138,12 @@ export const registerUser = async (email: string, password: string) => {
         passwordHash,
       },
     });
+
     const safeUser = {
       ...user,
       passwordHash: undefined,
     };
+
     return {
       user: safeUser,
       error: null,
@@ -162,6 +162,7 @@ export const loginUser = async (email: string, password: string) => {
       email: email,
     },
   });
+
   if (!user) {
     return {
       user: null,
